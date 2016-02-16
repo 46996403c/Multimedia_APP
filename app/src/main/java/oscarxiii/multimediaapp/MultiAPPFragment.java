@@ -6,14 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
-
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * A placeholder fragment containing a simple view.
  */
@@ -26,7 +18,7 @@ public class MultiAPPFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_multi_app, container, false);
+        /*View view = inflater.inflate(R.layout.fragment_multi_app, container, false);
         Firebase.setAndroidContext(getContext());
 
         Firebase myFirebaseRef = new Firebase("https://appmultimediaxiii.firebaseio.com/");
@@ -62,9 +54,9 @@ public class MultiAPPFragment extends Fragment {
             public void onCancelled(FirebaseError firebaseError) {
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
-        });
+        });*/
 
-        return view;
+        return inflater.inflate(R.layout.fragment_multi_app, container, false);
     }
 
 }
