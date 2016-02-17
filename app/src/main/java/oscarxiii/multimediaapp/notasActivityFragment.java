@@ -1,5 +1,9 @@
 package oscarxiii.multimediaapp;
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -8,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -20,8 +25,9 @@ import java.util.Map;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class notasActivityFragment extends Fragment {
-
+public class notasActivityFragment extends Fragment implements LocationListener {
+    Double lon;
+    Double lat;
     public notasActivityFragment() {
     }
 
@@ -29,6 +35,9 @@ public class notasActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_notas, container, false);
+
+        LocationManager manager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
+        manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, this);
 
         Firebase.setAndroidContext(getContext());
 
@@ -44,6 +53,8 @@ public class notasActivityFragment extends Fragment {
                 Map<String, String> post1 = new HashMap<String, String>();
                 post1.put("Titulo", String.valueOf(titulo.getText()));
                 post1.put("Nota", String.valueOf(nota.getText()));
+                post1.put("Longitud", String.valueOf(lon));
+                post1.put("Latitud", String.valueOf(lat));
                 postRef.push().setValue(post1);
 
                 Snackbar.make(view, "Nota añadida", Snackbar.LENGTH_LONG).setAction("Action", null).show();
@@ -64,5 +75,27 @@ public class notasActivityFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        Toast.makeText(getContext(), "Latitud: "+location.getLatitude()+"\nLongitud: "+location.getLongitude(), Toast.LENGTH_SHORT).show();
+        this.lon = location.getLongitude();
+        this.lat = location.getLatitude();
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        Toast.makeText(getContext(), "GPS Activado", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        Toast.makeText(getContext(), "GPS Desactivado", Toast.LENGTH_SHORT).show();
     }
 }
