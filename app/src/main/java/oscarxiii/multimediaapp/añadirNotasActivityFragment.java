@@ -25,16 +25,16 @@ import java.util.Map;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class notasActivityFragment extends Fragment implements LocationListener {
+public class añadirNotasActivityFragment extends Fragment implements LocationListener {
     Double lon;
     Double lat;
-    public notasActivityFragment() {
+    public añadirNotasActivityFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        final View view = inflater.inflate(R.layout.fragment_notas, container, false);
+        final View view = inflater.inflate(R.layout.fragment_añadirNotas, container, false);
 
         LocationManager manager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
         manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, this);

@@ -7,12 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class notasActivity extends AppCompatActivity {
+public class añadirNotasActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notas);
+        setContentView(R.layout.activity_añadirNotas);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -20,7 +20,7 @@ public class notasActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(notasActivity.this, MultiAPP.class));
+                startActivity(new Intent(añadirNotasActivity.this, MultiAPP.class));
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

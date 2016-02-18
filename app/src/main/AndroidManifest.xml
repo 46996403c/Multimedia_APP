@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".notasActivity"
+            android:name=".añadirNotasActivity"
             android:label="@string/title_activity_notas"
             android:parentActivityName=".MultiAPP"
             android:theme="@style/AppTheme.NoActionBar">
