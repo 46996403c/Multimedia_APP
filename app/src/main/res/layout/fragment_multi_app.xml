@@ -15,8 +15,24 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:rowCount="3"
-        android:columnCount="3">
+        android:rowCount="6"
+        android:columnCount="5">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HACER FOTO"
+            android:id="@+id/hacerFoto"
+            android:layout_row="4"
+            android:layout_column="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AÑADIR NOTAS"
+            android:id="@+id/addNotas"
+            android:layout_row="1"
+            android:layout_column="1" />
 
         <Button
             android:layout_width="wrap_content"
@@ -24,6 +40,14 @@
             android:text="Ver Notas"
             android:id="@+id/verNotas"
             android:layout_row="1"
-            android:layout_column="1" />
+            android:layout_column="3" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VER FOTO"
+            android:id="@+id/verFoto"
+            android:layout_row="4"
+            android:layout_column="3" />
     </GridLayout>
 </RelativeLayout>
