@@ -22,8 +22,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".añadirNotasActivity"
+            android:name=".addNotasActivity"
             android:label="@string/title_activity_notas"
+            android:parentActivityName=".MultiAPP"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="oscarxiii.multimediaapp.MultiAPP" />
+        </activity>
+        <activity
+            android:name=".verNotasActivity"
+            android:label="@string/title_activity_ver_notas"
             android:parentActivityName=".MultiAPP"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

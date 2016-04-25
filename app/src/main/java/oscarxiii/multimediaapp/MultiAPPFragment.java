@@ -24,8 +24,8 @@ public class MultiAPPFragment extends Fragment {
         myFirebaseRef.child("message").setValue("¡¡tu hermana!!");
 
 
-        Firebase alanRef = myFirebaseRef.child("users").child("alanisawesome");
-        users alan = new users("Alan Turing", 1912);
+        Firebase alanRef = myFirebaseRef.child("infoNota").child("alanisawesome");
+        infoNota alan = new infoNota("Alan Turing", 1912);
         alanRef.setValue(alan);
 
         Firebase postRef = myFirebaseRef.child("posts");

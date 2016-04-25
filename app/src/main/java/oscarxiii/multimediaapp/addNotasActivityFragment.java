@@ -25,16 +25,16 @@ import java.util.Map;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class añadirNotasActivityFragment extends Fragment implements LocationListener {
+public class addNotasActivityFragment extends Fragment implements LocationListener {
     Double lon;
     Double lat;
-    public añadirNotasActivityFragment() {
+    public addNotasActivityFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        final View view = inflater.inflate(R.layout.fragment_añadirNotas, container, false);
+        final View view = inflater.inflate(R.layout.fragment_add_notas, container, false);
 
         LocationManager manager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
         manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, this);
@@ -49,13 +49,17 @@ public class añadirNotasActivityFragment extends Fragment implements LocationLi
             public void onClick(View v) {
                 Firebase myFirebaseRef = new Firebase("https://appmultimediaxiii.firebaseio.com/");
 
+                /*Firebase postRef = myFirebaseRef.child("notas");
+                Map<String, String> post = new HashMap<>();
+                post.put("Titulo", String.valueOf(titulo.getText()));
+                post.put("Nota", String.valueOf(titulo.getText()));
+                post.put("Longitud", String.valueOf(lon));
+                post.put("Latitud", String.valueOf(lat));
+                postRef.push().setValue(post);*/
+
                 Firebase postRef = myFirebaseRef.child("notas");
-                Map<String, String> post1 = new HashMap<String, String>();
-                post1.put("Titulo", String.valueOf(titulo.getText()));
-                post1.put("Nota", String.valueOf(nota.getText()));
-                post1.put("Longitud", String.valueOf(lon));
-                post1.put("Latitud", String.valueOf(lat));
-                postRef.push().setValue(post1);
+                infoNota fireNota = new infoNota(String.valueOf(titulo.getText()),String.valueOf(nota.getText()), String.valueOf(lon), String.valueOf(lat));
+                postRef.push().setValue(fireNota);
 
                 Snackbar.make(view, "Nota añadida", Snackbar.LENGTH_LONG).setAction("Action", null).show();
 

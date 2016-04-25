@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class MultiAPP extends AppCompatActivity {
 
@@ -23,8 +24,18 @@ public class MultiAPP extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                //Intent i = new Intent(MultiAPP.this, añadirNotasActivity.class);
-                startActivity(new Intent(MultiAPP.this, añadirNotasActivity.class));
+                //Intent i = new Intent(MultiAPP.this, addNotasActivity.class);
+                startActivity(new Intent(MultiAPP.this, addNotasActivity.class));
+            }
+        });
+
+        Button buttonVerNotas = (Button) findViewById(R.id.verNotas);
+        buttonVerNotas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                //Intent i = new Intent(MultiAPP.this, addNotasActivity.class);
+                startActivity(new Intent(MultiAPP.this, verNotasActivity.class));
             }
         });
     }
