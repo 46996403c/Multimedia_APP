@@ -32,7 +32,7 @@ public class MultiAPP extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                Snackbar.make(view, "Abriendo bloc de notas para añadir una nueva", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 //Intent i = new Intent(MultiAPP.this, addNotasActivity.class);
                 startActivity(new Intent(MultiAPP.this, addNotasActivity.class));
             }
@@ -42,7 +42,7 @@ public class MultiAPP extends AppCompatActivity {
         buttonAddNotas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                Snackbar.make(view, "Abriendo bloc de notas para añadir una nueva", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 //Intent i = new Intent(MultiAPP.this, addNotasActivity.class);
                 startActivity(new Intent(MultiAPP.this, addNotasActivity.class));
             }
@@ -52,7 +52,7 @@ public class MultiAPP extends AppCompatActivity {
         buttonVerNotas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                Snackbar.make(view, "Abriendo bloc de notas", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 //Intent i = new Intent(MultiAPP.this, addNotasActivity.class);
                 startActivity(new Intent(MultiAPP.this, verNotasActivity.class));
             }
@@ -71,51 +71,11 @@ public class MultiAPP extends AppCompatActivity {
         buttonVerFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                Snackbar.make(view, "Abriendo galeria", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 //Intent i = new Intent(MultiAPP.this, addNotasActivity.class);
                 startActivity(new Intent(MultiAPP.this, verFoto.class));
             }
         });
-    }
-    String mCurrentPhotoPath;
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
-        );
-
-        // Save a file: path for use with ACTION_VIEW intents
-        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
-        return image;
-    }
-
-    static final int REQUEST_TAKE_PHOTO = 1;
-
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Ensure that there's a camera activity to handle the intent
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            // Create the File where the photo should go
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                // Error occurred while creating the File
-                System.out.print("=========ERRORRRR AL TOMAR LA FOTO============");
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-            }else {
-                System.out.print("=========ERRORRRR AL GUARDAR LA FOTO============");
-            }
-        }
     }
 
     @Override
@@ -139,4 +99,45 @@ public class MultiAPP extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    //======================= SECCION DE CAMARA PARA TOMAR UNA FOTO ==============================\\
+    String mCurrentPhotoPath;
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        return image;
+    }
+    static final int REQUEST_TAKE_PHOTO = 1;
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+                System.out.print("=========ERROR AL TOMAR LA FOTO============");
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+            }else {
+                System.out.print("=========ERROR AL GUARDAR LA FOTO============");
+            }
+        }
+    }
+    //======================= FIN SECCION DE CAMARA PARA TOMAR UNA FOTO ==============================\\
+
 }
