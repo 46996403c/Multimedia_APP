@@ -53,6 +53,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="oscarxiii.multimediaapp.MultiAPP" />
         </activity>
+        <activity
+            android:name=".verVideo"
+            android:label="@string/title_activity_ver_video"
+            android:parentActivityName=".MultiAPP"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="oscarxiii.multimediaapp.MultiAPP" />
+        </activity>
     </application>
 
 </manifest>

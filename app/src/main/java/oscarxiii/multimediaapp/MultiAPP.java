@@ -66,7 +66,7 @@ public class MultiAPP extends AppCompatActivity {
         buttonHacerFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Abriendo camara", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                Snackbar.make(view, "Abriendo camara de fotos", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 tomarFoto();
             }
         });
@@ -85,8 +85,18 @@ public class MultiAPP extends AppCompatActivity {
         buttonHacerVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Abriendo camara", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                Snackbar.make(view, "Abriendo camara de video", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 tomarVideo();
+            }
+        });
+
+        Button buttonVerVideo = (Button) findViewById(R.id.verVideo);
+        buttonVerVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Abriendo galeria", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                //Intent i = new Intent(MultiAPP.this, addNotasActivity.class);
+                startActivity(new Intent(MultiAPP.this, verVideo.class));
             }
         });
     }
