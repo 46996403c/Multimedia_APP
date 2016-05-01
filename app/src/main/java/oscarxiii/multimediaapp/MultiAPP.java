@@ -20,6 +20,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MultiAPP extends AppCompatActivity {
+    static final int REQUEST_TAKE_PHOTO = 1;
+    static final int REQUEST_TAKE_VIDEO = 1;
+    String mCurrentPhotoPath;
+    String mCurrentMoviesPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +67,7 @@ public class MultiAPP extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Abriendo camara", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                dispatchTakePictureIntent();
+                tomarFoto();
             }
         });
 
@@ -74,6 +78,15 @@ public class MultiAPP extends AppCompatActivity {
                 Snackbar.make(view, "Abriendo galeria", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 //Intent i = new Intent(MultiAPP.this, addNotasActivity.class);
                 startActivity(new Intent(MultiAPP.this, verFoto.class));
+            }
+        });
+
+        Button buttonHacerVideo = (Button) findViewById(R.id.hacerVideo);
+        buttonHacerVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Abriendo camara", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                tomarVideo();
             }
         });
     }
@@ -101,8 +114,7 @@ public class MultiAPP extends AppCompatActivity {
     }
 
     //======================= SECCION DE CAMARA PARA TOMAR UNA FOTO ==============================\\
-    String mCurrentPhotoPath;
-    private File createImageFile() throws IOException {
+    private File guardarFoto() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
@@ -116,15 +128,14 @@ public class MultiAPP extends AppCompatActivity {
         mCurrentPhotoPath = "file:" + image.getAbsolutePath();
         return image;
     }
-    static final int REQUEST_TAKE_PHOTO = 1;
-    private void dispatchTakePictureIntent() {
+    private void tomarFoto() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             // Create the File where the photo should go
             File photoFile = null;
             try {
-                photoFile = createImageFile();
+                photoFile = guardarFoto();
             } catch (IOException ex) {
                 // Error occurred while creating the File
                 System.out.print("=========ERROR AL TOMAR LA FOTO============");
@@ -140,4 +151,42 @@ public class MultiAPP extends AppCompatActivity {
     }
     //======================= FIN SECCION DE CAMARA PARA TOMAR UNA FOTO ==============================\\
 
+    //======================= SECCION DE CAMARA PARA GRABAR UN VIDEO ==============================\\
+    private File guardarVideo() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "MP4_" + timeStamp + "_";
+        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".mp4",         /* suffix */
+                storageDir      /* directory */
+        );
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentMoviesPath = "file:" + image.getAbsolutePath();
+        return image;
+    }
+    private void tomarVideo() {
+        Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File videoFile = null;
+            try {
+                videoFile = guardarVideo();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+                System.out.print("=========ERROR AL TOMAR EL VIDEO============");
+            }
+            // Continue only if the File was successfully created
+            if (videoFile != null) {
+                takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(videoFile));
+                takeVideoIntent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1);
+                startActivityForResult(takeVideoIntent, REQUEST_TAKE_VIDEO);
+            }else {
+                System.out.print("=========ERROR AL GUARDAR EL VIDEO============");
+            }
+        }
+    }
+    //======================= FIN SECCION DE CAMARA PARA GRABAR UN VIDEO ==============================\\
 }
