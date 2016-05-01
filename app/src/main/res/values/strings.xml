@@ -5,4 +5,6 @@
     <string name="title_activity_ver_notas">Ver Notas</string>
     <string name="title_activity_hacer_foto">Ver Foto</string>
     <string name="title_activity_ver_video">Ver Video</string>
+    <string name="title_activity_record">recordAct</string>
+    <string name="title_activity_grabadora">Grabadora</string>
 </resources>

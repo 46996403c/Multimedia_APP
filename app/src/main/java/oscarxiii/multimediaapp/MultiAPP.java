@@ -99,6 +99,15 @@ public class MultiAPP extends AppCompatActivity {
                 startActivity(new Intent(MultiAPP.this, verVideo.class));
             }
         });
+
+        Button buttonGrabadora = (Button) findViewById(R.id.hacerAudio);
+        buttonGrabadora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Abriendo grabadora de audio", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                startActivity(new Intent(MultiAPP.this, Grabadora.class));
+            }
+        });
     }
 
     @Override

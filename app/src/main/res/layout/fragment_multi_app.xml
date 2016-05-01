@@ -69,7 +69,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GRABAR AUDIO"
+            android:text="GRABADORA"
             android:id="@+id/hacerAudio"
             android:layout_row="6"
             android:layout_column="1" />
@@ -77,18 +77,10 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ESCUCHAR AUDIO"
-            android:id="@+id/oirAudio"
-            android:layout_row="6"
-            android:layout_column="3" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="MAPA"
             android:id="@+id/mapa"
-            android:layout_row="7"
-            android:layout_column="1" />
+            android:layout_row="6"
+            android:layout_column="3" />
 
         <Button
             android:layout_width="wrap_content"
@@ -96,6 +88,6 @@
             android:text="INFO"
             android:id="@+id/info"
             android:layout_row="7"
-            android:layout_column="3" />
+            android:layout_column="1" />
     </GridLayout>
 </RelativeLayout>
