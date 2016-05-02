@@ -88,6 +88,16 @@ public class MultiAPP extends AppCompatActivity {
             }
         });
 
+        Button buttonMap = (Button) findViewById(R.id.mapa);
+        buttonMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Abriendo galeria", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                //Intent i = new Intent(MultiAPP.this, addNotasActivity.class);
+                startActivity(new Intent(MultiAPP.this, Mapa.class));
+            }
+        });
+
         Button buttonVerVideo = (Button) findViewById(R.id.verVideo);
         buttonVerVideo.setOnClickListener(new View.OnClickListener() {
             @Override

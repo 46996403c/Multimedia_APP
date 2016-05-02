@@ -6,4 +6,5 @@
     <string name="title_activity_hacer_foto">Ver Foto</string>
     <string name="title_activity_ver_video">Ver Video</string>
     <string name="title_activity_grabadora">Grabadora</string>
+    <string name="title_activity_mapa">Mapa</string>
 </resources>
