@@ -10,7 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,7 +40,7 @@ public class MultiAPP extends AppCompatActivity {
             }
         });
 
-        Button buttonAddNotas = (Button) findViewById(R.id.addNotas);
+        ImageButton buttonAddNotas = (ImageButton) findViewById(R.id.addNotas);
         buttonAddNotas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,7 +50,7 @@ public class MultiAPP extends AppCompatActivity {
             }
         });
 
-        Button buttonVerNotas = (Button) findViewById(R.id.verNotas);
+        ImageButton buttonVerNotas = (ImageButton) findViewById(R.id.verNotas);
         buttonVerNotas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,7 +60,7 @@ public class MultiAPP extends AppCompatActivity {
             }
         });
 
-        Button buttonHacerFoto = (Button) findViewById(R.id.hacerFoto);
+        ImageButton buttonHacerFoto = (ImageButton) findViewById(R.id.hacerFoto);
         buttonHacerFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +69,7 @@ public class MultiAPP extends AppCompatActivity {
             }
         });
 
-        Button buttonVerFoto = (Button) findViewById(R.id.verFoto);
+        ImageButton buttonVerFoto = (ImageButton) findViewById(R.id.verFoto);
         buttonVerFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,7 +79,7 @@ public class MultiAPP extends AppCompatActivity {
             }
         });
 
-        Button buttonHacerVideo = (Button) findViewById(R.id.hacerVideo);
+        ImageButton buttonHacerVideo = (ImageButton) findViewById(R.id.hacerVideo);
         buttonHacerVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,7 +88,7 @@ public class MultiAPP extends AppCompatActivity {
             }
         });
 
-        Button buttonMap = (Button) findViewById(R.id.mapa);
+        ImageButton buttonMap = (ImageButton) findViewById(R.id.mapa);
         buttonMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,7 +98,7 @@ public class MultiAPP extends AppCompatActivity {
             }
         });
 
-        Button buttonVerVideo = (Button) findViewById(R.id.verVideo);
+        ImageButton buttonVerVideo = (ImageButton) findViewById(R.id.verVideo);
         buttonVerVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,7 +108,7 @@ public class MultiAPP extends AppCompatActivity {
             }
         });
 
-        Button buttonGrabadora = (Button) findViewById(R.id.hacerAudio);
+        ImageButton buttonGrabadora = (ImageButton) findViewById(R.id.hacerAudio);
         buttonGrabadora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,7 +117,7 @@ public class MultiAPP extends AppCompatActivity {
             }
         });
 
-        Button buttonInfo = (Button) findViewById(R.id.info);
+        ImageButton buttonInfo = (ImageButton) findViewById(R.id.info);
         buttonInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

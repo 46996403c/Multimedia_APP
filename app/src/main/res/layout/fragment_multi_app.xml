@@ -15,79 +15,152 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:rowCount="9"
+        android:rowCount="13"
         android:columnCount="5">
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HACER FOTO"
-            android:id="@+id/hacerFoto"
-            android:layout_row="4"
-            android:layout_column="1" />
+            android:id="@+id/verNotas"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:src="@android:drawable/ic_menu_save" />
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="AÑADIR NOTAS"
-            android:id="@+id/addNotas"
+            android:text="Añadir Notas"
+            android:id="@+id/textView4"
             android:layout_row="1"
-            android:layout_column="1" />
+            android:layout_column="0" />
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ver Notas"
-            android:id="@+id/verNotas"
+            android:id="@+id/textView6"
             android:layout_row="1"
             android:layout_column="3" />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="VER FOTO"
+            android:id="@+id/hacerFoto"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:src="@android:drawable/ic_menu_camera" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addNotas"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:src="@android:drawable/ic_menu_edit" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/verFoto"
-            android:layout_row="4"
-            android:layout_column="3" />
+            android:layout_row="2"
+            android:layout_column="3"
+            android:src="@android:drawable/ic_menu_gallery" />
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HACER VIDEO"
+            android:text="Hacer Foto"
+            android:id="@+id/textView7"
+            android:layout_row="3"
+            android:layout_column="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver Foto"
+            android:id="@+id/textView8"
+            android:layout_row="3"
+            android:layout_column="3" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/hacerVideo"
-            android:layout_row="5"
-            android:layout_column="1" />
+            android:layout_row="4"
+            android:layout_column="0"
+            android:src="@android:drawable/ic_menu_compass" />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="VER VIDEO"
             android:id="@+id/verVideo"
+            android:layout_row="4"
+            android:layout_column="3"
+            android:src="@android:drawable/ic_menu_slideshow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hacer Video"
+            android:id="@+id/textView9"
+            android:layout_row="5"
+            android:layout_column="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver Video"
+            android:id="@+id/textView10"
             android:layout_row="5"
             android:layout_column="3" />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GRABADORA"
             android:id="@+id/hacerAudio"
             android:layout_row="6"
-            android:layout_column="1" />
+            android:layout_column="0"
+            android:src="@android:drawable/ic_btn_speak_now" />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MAPA"
             android:id="@+id/mapa"
             android:layout_row="6"
-            android:layout_column="3" />
+            android:layout_column="3"
+            android:src="@android:drawable/ic_dialog_map" />
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="INFO"
-            android:id="@+id/info"
+            android:text="Grabadora"
+            android:id="@+id/textView11"
             android:layout_row="7"
+            android:layout_column="0" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/info"
+            android:layout_row="8"
+            android:layout_column="1"
+            android:src="@android:drawable/ic_dialog_info" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mapa"
+            android:id="@+id/textView12"
+            android:layout_row="7"
+            android:layout_column="3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Info"
+            android:id="@+id/textView13"
+            android:layout_row="9"
             android:layout_column="1" />
+
     </GridLayout>
 </RelativeLayout>
