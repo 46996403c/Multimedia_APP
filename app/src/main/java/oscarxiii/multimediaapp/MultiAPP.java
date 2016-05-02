@@ -116,6 +116,15 @@ public class MultiAPP extends AppCompatActivity {
                 startActivity(new Intent(MultiAPP.this, Grabadora.class));
             }
         });
+
+        Button buttonInfo = (Button) findViewById(R.id.info);
+        buttonInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Abriendo informacion", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                startActivity(new Intent(MultiAPP.this, Info.class));
+            }
+        });
     }
 
     //======================= SECCION DE CAMARA PARA TOMAR UNA FOTO ==============================\\
